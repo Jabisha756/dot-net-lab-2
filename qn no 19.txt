@@ -1,0 +1,37 @@
+using System;
+
+class GenericClass<T>
+{
+    private T data;
+
+    public GenericClass(T value)
+    {
+        data = value;
+    }
+
+    public void Show()
+    {
+        Console.WriteLine("Data: " + data);
+    }
+}
+
+class Program
+{
+    // Generic Method
+    static void Display<T>(T value)
+    {
+        Console.WriteLine("Value: " + value);
+    }
+
+    static void Main()
+    {
+        GenericClass<int> obj1 = new GenericClass<int>(100);
+        GenericClass<string> obj2 = new GenericClass<string>("Hello");
+
+        obj1.Show();
+        obj2.Show();
+
+        Display<int>(500);
+        Display<string>("Generic Method");
+    }
+}

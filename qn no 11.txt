@@ -1,0 +1,172 @@
+using System;
+
+// Base Class
+class Vehicle
+{
+    private string name;
+    protected float speed;
+
+    // Constructor
+    public Vehicle(string name)
+    {
+        this.name = name;
+    }
+
+    // Method
+    public virtual float Move(float distance)
+    {
+        return distance / speed;
+    }
+
+    // Getter
+    public string GetName()
+    {
+        return name;
+    }
+
+    // Describe Method
+    public virtual string Describe()
+    {
+        return "Vehicle Name: " + name + ", Speed: " + speed;
+    }
+}
+
+// Derived Class
+class MotorVehicle : Vehicle
+{
+    protected int number_of_wheels;
+    protected float engine_volume;
+
+    // Constructor
+    public MotorVehicle(string name) : base(name)
+    {
+    }
+
+    // Method
+    public virtual string HonkHorn()
+    {
+        return "Beep Beep!";
+    }
+}
+
+// Truck Class
+class Truck : MotorVehicle
+{
+    private float horsepower;
+
+    // Constructor
+    public Truck(string name, float horsepower) : base(name)
+    {
+        this.horsepower = horsepower;
+        speed = 60;
+    }
+
+    // Override Describe
+    public override string Describe()
+    {
+        return "Truck: " + GetName() +
+               ", Horsepower: " + horsepower +
+               ", Speed: " + speed;
+    }
+
+    // Override HonkHorn
+    public override string HonkHorn()
+    {
+        return "Truck Horn: HONK HONK!";
+    }
+}
+
+// Car Class
+class Car : MotorVehicle
+{
+    private int num_doors;
+
+    // Constructor
+    public Car(string name, int num_doors) : base(name)
+    {
+        this.num_doors = num_doors;
+        speed = 80;
+    }
+
+    // Override Describe
+    public override string Describe()
+    {
+        return "Car: " + GetName() +
+               ", Doors: " + num_doors +
+               ", Speed: " + speed;
+    }
+
+    // Override HonkHorn
+    public override string HonkHorn()
+    {
+        return "Car Horn: PEEP PEEP!";
+    }
+}
+
+// Airplane Class
+class Airplane : Vehicle
+{
+    private float wingspan;
+    private int capacity;
+
+    // Constructor
+    public Airplane(string name, float wingspan, int capacity)
+        : base(name)
+    {
+        this.wingspan = wingspan;
+        this.capacity = capacity;
+        speed = 500;
+    }
+
+    // Landing Gear Method
+    private void LandingGear(bool state)
+    {
+        if (state)
+            Console.WriteLine("Landing gear deployed.");
+        else
+            Console.WriteLine("Landing gear retracted.");
+    }
+
+    // Override Move
+    public override float Move(float distance)
+    {
+        return distance / speed;
+    }
+
+    // Override Describe
+    public override string Describe()
+    {
+        return "Airplane: " + GetName() +
+               ", Wingspan: " + wingspan +
+               ", Capacity: " + capacity +
+               ", Speed: " + speed;
+    }
+}
+
+// Main Class
+class Program
+{
+    static void Main()
+    {
+        Truck t = new Truck("Volvo Truck", 400);
+        Car c = new Car("Toyota", 4);
+        Airplane a = new Airplane("Boeing 747", 68.5f, 400);
+
+        Console.WriteLine(t.Describe());
+        Console.WriteLine(t.HonkHorn());
+
+        Console.WriteLine();
+
+        Console.WriteLine(c.Describe());
+        Console.WriteLine(c.HonkHorn());
+
+        Console.WriteLine();
+
+        Console.WriteLine(a.Describe());
+
+        Console.WriteLine();
+        Console.WriteLine("Truck travel time: " + t.Move(120) + " hours");
+        Console.WriteLine("Car travel time: " + c.Move(160) + " hours");
+        Console.WriteLine("Airplane travel time: " + a.Move(1000) + " hours");
+    }
+}

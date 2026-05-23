@@ -1,0 +1,27 @@
+using System;
+
+struct Company
+{
+    public string companyName;
+    public string address;
+    public string phone;
+    public double salary;
+}
+
+class Program
+{
+    static void Main()
+    {
+        Company c;
+
+        c.companyName = "ABC Pvt Ltd";
+        c.address = "Kathmandu";
+        c.phone = "9841000000";
+        c.salary = 50000;
+
+        Console.WriteLine("Company Name: " + c.companyName);
+        Console.WriteLine("Address: " + c.address);
+        Console.WriteLine("Phone: " + c.phone);
+        Console.WriteLine("Salary: " + c.salary);
+    }
+}

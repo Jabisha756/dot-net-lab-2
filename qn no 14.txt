@@ -1,0 +1,42 @@
+using System;
+
+class ContactBook
+{
+    private string[] names = new string[5];
+    private string[] phones = new string[5];
+
+    // Indexer
+    public string this[int index]
+    {
+        get
+        {
+            return names[index] + " - " + phones[index];
+        }
+        set
+        {
+            string[] data = value.Split(',');
+
+            names[index] = data[0];
+            phones[index] = data[1];
+        }
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        ContactBook c = new ContactBook();
+
+        c[0] = "Ram,9841000001";
+        c[1] = "Shyam,9841000002";
+        c[2] = "Hari,9841000003";
+
+        Console.WriteLine("Contact List:");
+
+        for (int i = 0; i < 3; i++)
+        {
+            Console.WriteLine(c[i]);
+        }
+    }
+}

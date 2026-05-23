@@ -1,0 +1,19 @@
+using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main()
+    {
+        Dictionary<int, string> students = new Dictionary<int, string>();
+
+        students.Add(1, "Ram");
+        students.Add(2, "Shyam");
+        students.Add(3, "Hari");
+
+        foreach (KeyValuePair<int, string> item in students)
+        {
+            Console.WriteLine(item.Key + " : " + item.Value);
+        }
+    }
+}

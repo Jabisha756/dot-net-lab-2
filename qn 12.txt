@@ -1,0 +1,41 @@
+using System;
+
+class Student
+{
+    // Auto Property
+    public int Id { get; set; }
+
+    // Read-only Property
+    public string College { get; } = "ABC College";
+
+    // Write-only Property
+    private string password;
+    public string Password
+    {
+        set { password = value; }
+    }
+
+    // Full Property
+    private string name;
+    public string Name
+    {
+        get { return name; }
+        set { name = value; }
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        Student s = new Student();
+
+        s.Id = 101;
+        s.Name = "Ram";
+        s.Password = "12345";
+
+        Console.WriteLine("ID: " + s.Id);
+        Console.WriteLine("Name: " + s.Name);
+        Console.WriteLine("College: " + s.College);
+    }
+}

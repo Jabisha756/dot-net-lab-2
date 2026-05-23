@@ -1,0 +1,101 @@
+using System;
+
+class Number
+{
+    int value;
+
+    public Number(int v)
+    {
+        value = v;
+    }
+
+    // ++ Operator
+    public static Number operator ++(Number n)
+    {
+        n.value++;
+        return n;
+    }
+
+    // -- Operator
+    public static Number operator --(Number n)
+    {
+        n.value--;
+        return n;
+    }
+
+    // + Operator
+    public static Number operator +(Number a, Number b)
+    {
+        return new Number(a.value + b.value);
+    }
+
+    // - Operator
+    public static Number operator -(Number a, Number b)
+    {
+        return new Number(a.value - b.value);
+    }
+
+    // * Operator
+    public static Number operator *(Number a, Number b)
+    {
+        return new Number(a.value * b.value);
+    }
+
+    // / Operator
+    public static Number operator /(Number a, Number b)
+    {
+        return new Number(a.value / b.value);
+    }
+
+    // == Operator
+    public static bool operator ==(Number a, Number b)
+    {
+        return a.value == b.value;
+    }
+
+    // != Operator
+    public static bool operator !=(Number a, Number b)
+    {
+        return a.value != b.value;
+    }
+
+    public override bool Equals(object obj)
+    {
+        return true;
+    }
+
+    public override int GetHashCode()
+    {
+        return value.GetHashCode();
+    }
+
+    public void Display()
+    {
+        Console.WriteLine("Value = " + value);
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        Number n1 = new Number(20);
+        Number n2 = new Number(10);
+
+        Number sum = n1 + n2;
+        Number sub = n1 - n2;
+        Number mul = n1 * n2;
+        Number div = n1 / n2;
+
+        ++n1;
+        --n2;
+
+        sum.Display();
+        sub.Display();
+        mul.Display();
+        div.Display();
+
+        Console.WriteLine(n1 == n2);
+        Console.WriteLine(n1 != n2);
+    }
+}

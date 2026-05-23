@@ -1,0 +1,31 @@
+using System;
+
+static class StringHelper
+{
+    public static string ToUpperCase(string text)
+    {
+        return text.ToUpper();
+    }
+
+    public static string ToLowerCase(string text)
+    {
+        return text.ToLower();
+    }
+
+    public static int StringLength(string text)
+    {
+        return text.Length;
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        string str = "Hello World";
+
+        Console.WriteLine("Uppercase: " + StringHelper.ToUpperCase(str));
+        Console.WriteLine("Lowercase: " + StringHelper.ToLowerCase(str));
+        Console.WriteLine("Length: " + StringHelper.StringLength(str));
+    }
+}

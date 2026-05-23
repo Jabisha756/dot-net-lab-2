@@ -1,0 +1,34 @@
+using System;
+
+abstract class Department
+{
+    public abstract void GenerateReport();
+}
+
+class Cardiology : Department
+{
+    public override void GenerateReport()
+    {
+        Console.WriteLine("Cardiology patient report generated.");
+    }
+}
+
+class Neurology : Department
+{
+    public override void GenerateReport()
+    {
+        Console.WriteLine("Neurology patient report generated.");
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        Department d1 = new Cardiology();
+        Department d2 = new Neurology();
+
+        d1.GenerateReport();
+        d2.GenerateReport();
+    }
+}

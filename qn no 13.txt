@@ -1,0 +1,34 @@
+using System;
+
+class Subjects
+{
+    private string[] sub = new string[5];
+
+    // Indexer
+    public string this[int index]
+    {
+        get { return sub[index]; }
+        set { sub[index] = value; }
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        Subjects s = new Subjects();
+
+        s[0] = "System Analysis and Design";
+        s[1] = "Computer Graphics";
+        s[2] = "Cryptography";
+        s[3] = "Java Programming";
+        s[4] = "Web Technology";
+
+        Console.WriteLine("BCA 5th Semester Subjects:");
+
+        for (int i = 0; i < 5; i++)
+        {
+            Console.WriteLine(s[i]);
+        }
+    }
+}
